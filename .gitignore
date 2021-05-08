@@ -1,0 +1,10 @@
+#ignore <file_name>.xyz
+#
+# C-Programming 
+*.cbp
+*.depend
+*.layout
+.DS_Store
+
+#ignore folder 
+__pycache__/ 
