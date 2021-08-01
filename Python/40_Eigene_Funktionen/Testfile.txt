@@ -1,0 +1,9 @@
+﻿Dies ist ein Textfile zum Testen meiner Funktionen in Python.
+Um einen Text finden und ersetzen zu können muss Das File erst mal eingelesen werden.
+Dann könnte man nach bestimmten Worten suchen und diese ersetzen.
+Das will ich hier mal versuchen.
+Was mich interessiert ist auch, on man Das dann auch mit binear Files machen kann.
+Aber Das ist schon der zweite Schritt, daß mit dem Textfile soll erst mal reichen.
+
+Das Das Das
+

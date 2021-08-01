@@ -1,0 +1,66 @@
+USE("PLAST");
+//USE("Debugger");
+//DBG_SET_TYPE("PLAST");
+PLAST_USE_MODULE("POWERSOURCE");
+//PLAST_USE_MODULE("DEBUGGER");
+GCC_WARNING_OPTS("-Wno-error");
+
+#include "PLAST.h"
+
+#define PLAST_SOLUTION PLAST_SOLUTION
+
+SETUP
+{
+    ps.setErrorHandlerBehaviour(PS_SWATT_HALT_NONE);
+    ps.connect();
+
+
+}
+TEST(test1)
+{
+    ps.openPort();
+
+    ps.printPortConfiguration();
+
+    //ps.setVoltage(11.9,1);
+
+    ps.setOutputON(1);
+
+    PLAST_sleep(1);
+
+    ps.setOutputOFF(1);
+
+    //ps.setOutputON(1);
+
+    ps.reset();
+
+    double volts,amperes;
+
+    ps.getVoltage(&volts,1);
+
+    printf("%lf",volts);
+
+  //  ps.getVoltageSetted(&volts,1);
+
+    printf("%lf",volts);
+
+  //  ps.setVoltageLimit(10);
+
+   // ps.getVoltageLimit(&volts);
+
+    printf("%lf",volts);
+
+    ps.setCurrent(0.22,1);
+
+   // ps.getCurrent(&amperes,1);
+
+    ps.setCurrentLimit(0.22);
+
+    ps.getCurrentLimit(&amperes);
+
+    //ps.setOutputOFF(1);
+
+    ps.closePort();
+
+}
+

@@ -1,0 +1,53 @@
+USE("PLAST");
+//DBG_SET_TYPE("PLAST");
+//PLAST_USE_MODULE("POWERSOURCE");
+//PLAST_USE_MODULE("DEBUGGER");
+//PLAST_USE_MODULE("SIGNALGENERATOR");
+PLAST_USE_MODULE("ALL");
+GCC_WARNING_OPTS("-Wno-error");
+
+#include "PLAST.h"
+
+
+SETUP
+{
+
+    sg.connect();
+    sg.setErrorHandlerBehaviour(SG_SWATT_HALT_NONE);
+}
+
+
+TEST(test1)
+{
+    double ampl=0.99,freq=2000;
+    char waveformType[10];
+    double dutyCycle=0.5,symm=1;
+    sg.openPort();
+    sg.printPortConfiguration();
+    sg.sendCommand("Banana");
+    PLAST_sleep(1);
+    sg.setOutputON(1);
+    //sg.getAmplitude(&ampl);
+    printf("%lf",ampl);
+    sg.setAmplitude(ampl);
+    sg.reset();
+    sg.setFrequency(freq);
+    sg.setSinWaveform();
+    sg.setSquareWaveform(dutyCycle);
+    sg.setPulseWaveform(dutyCycle);
+    sg.setRampWaveform(symm);
+    sg.setArbitraryWaveform("RAMP");
+    sg.getWaveformType(waveformType);
+    printf("%s",waveformType);
+    union PLAST_union_double_string outVal;
+    if(sg.getWaveformParameter(&outVal)!=SG_E_FAILED_SWATT){
+        printf("Great succes:\n %s",outVal.stringVal);
+    }else
+    {
+        printf("Test failed");
+    }
+
+    sg.closePort();
+
+
+}

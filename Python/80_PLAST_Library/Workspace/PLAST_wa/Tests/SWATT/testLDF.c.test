@@ -1,0 +1,51 @@
+USE("PLAST");
+//DBG_SET_TYPE("PLAST");
+//PLAST_USE_MODULE("POWERSOURCE");
+//PLAST_USE_MODULE("DEBUGGER");
+//PLAST_USE_MODULE("SIGNALGENERATOR");
+PLAST_USE_MODULE("LDFParser");
+GCC_WARNING_OPTS("-Wno-error");
+
+#include "PLAST.h"
+
+SETUP
+{
+
+    ldf.setErrorHandlerBehaviour(LDF_SWATT_HALT_NONE);
+}
+
+
+TEST(test1)
+{
+
+    PLAST_LDFParser myParser;
+    PLAST_LINFrame frame;
+    PLAST_LINFrame frame2;
+    PLAST_LINFrame frameList[3];
+    PLAST_LINNode master;
+    PLAST_LINNode slave;
+    char val[4];
+
+    ldf.getLDFParser(&myParser,"../../../../K_LIN_08.ldf");
+    ldf.getLINFrame(myParser,"ST_FAS_LIN",&frame2);
+    ldf.setSignalValue(frame2,"ST_LED_IBRK_DRS_LIN","1");
+    ldf.getSignalValue(frame2,"ST_LED_IBRK_DRS_LIN",val);
+    printf("ST_LED_IBRK_DRS_LIN : %s\n",val);
+    ldf.getLINNodeMaster(myParser,"RUN_MAIN",&master);
+    ldf.addFrame(master,frame2);
+    ldf.startSending(master);
+    PLAST_sleep(10);
+    ldf.stopSending(master);
+
+    //
+    int nrRetFrames=0;
+    ldf.getFrames(master,3,frameList,&nrRetFrames);
+    printf("Number of returned Frames  initial %d \n",nrRetFrames);
+    ldf.getLINNodeSlave(myParser,&slave);
+    ldf.removeFrame(master,frame2);
+    nrRetFrames=5;
+    ldf.getFrames(master,3,frameList,&nrRetFrames);
+    printf("Number of returned Frames final %d \n",nrRetFrames);
+
+
+}

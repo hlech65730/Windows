@@ -1,0 +1,33 @@
+USE("PLAST");
+//DBG_SET_TYPE("PLAST");
+//PLAST_USE_MODULE("POWERSOURCE");
+//PLAST_USE_MODULE("DEBUGGER");
+//PLAST_USE_MODULE("SIGNALGENERATOR");
+PLAST_USE_MODULE("DBCParser");
+GCC_WARNING_OPTS("-Wno-error");
+
+#include "PLAST.h"
+
+SETUP
+{
+
+    dbc.setErrorHandlerBehaviour(DBC_SWATT_HALT_NONE);
+}
+
+
+TEST(test1)
+{
+    char lowBeam[10];
+    PLAST_DBCParser myParser;
+    PLAST_CANMessage lightMessage;
+    /* "../../../../" searches for database in project root folder  */
+    dbc.getDBCParser(&myParser,"../../../../TstDB.dbc");
+    dbc.getCANMessage(myParser,"LightingCommand_RLC",&lightMessage);
+    dbc.setSignalValue(lightMessage,"LowBeamHeadLightCmd","0x01");
+    dbc.setSignalValue(lightMessage,"HeadLightHighBeamCmd","0x03");
+    dbc.getSignalValue(lightMessage,"LowBeamHeadLightCmd",lowBeam);
+    printf("Low Beam : %s\n",lowBeam);
+    dbc.startSending(lightMessage);
+    PLAST_sleep(1);
+    dbc.stopSending(lightMessage);
+}

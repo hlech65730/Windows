@@ -1,0 +1,1 @@
+setx PLAST_WA_PATH %~dp0

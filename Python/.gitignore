@@ -1,0 +1,5 @@
+#ignore <file_name>.xyz
+*.pyc
+#ignore folder
+__pycache__/*
+ 

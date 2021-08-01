@@ -1,0 +1,33 @@
+USE("PLAST");
+
+PLAST_USE_MODULE("SMS");
+GCC_WARNING_OPTS("-Wno-error");
+
+#include "PLAST.h"
+
+#define SMS_NUMBER 24
+
+SETUP
+{
+
+    sms.connect();
+    sms.setErrorHandlerBehaviour(SG_SWATT_HALT_NONE);
+}
+
+
+TEST(test1)
+{
+    int poz=0;
+    char a[10]="A=0",b[10]="B=1";
+    sms.setPos(SMS_NUMBER,20);
+    sms.reset(10);
+    sms.inc(SMS_NUMBER);
+    sms.dec(SMS_NUMBER);
+    sms.readPos(SMS_NUMBER,&poz);
+    sms.getHallState(SMS_NUMBER,a,b);
+    sms.setHallErr(SMS_NUMBER,"A=B");
+    sms.setBlock(SMS_NUMBER,10,"UP");
+    sms.setPinch(SMS_NUMBER,30,"DOWN");
+    printf("Position: %d Hall state A: %s Hall state B: %s\n",poz,a,b);
+
+}

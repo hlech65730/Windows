@@ -1,0 +1,42 @@
+USE("PLAST");
+//USE("Debugger");
+//DBG_SET_TYPE("PLAST");
+
+PLAST_USE_MODULE("POWERSOURCE");
+PLAST_USE_MODULE("DEBUGGER");
+
+GCC_WARNING_OPTS("-Wno-error");
+
+#include "PLAST.h"
+
+#define PLAST_SOLUTION PLAST_SOLUTION
+
+SETUP
+{
+   dbg.setErrorHandlerBehaviour(DBG_SWATT_HALT_NONE);
+   dbg.connect();
+
+
+}
+
+TEST(test1)
+{
+    //dbg.waitUnitlStopped(1000);
+    //dbg.run();
+    dbg.download();
+    dbg.modify("fRealTime","can1_rx","12");
+    dbg.run();
+    double rez;
+    dbg.evaluate("fRealTime","can1_rx","double",&rez);
+    printf("Rez=%lf",rez);
+// //   dbg.breakpint.setOnction("main");
+
+      //dbg.run();
+//    dbg.download();
+//    dbg.breakpint.setOnFunction("main");
+//    dbg.breakpint.setOnLineNumber("common/main.c", 36);
+
+   // dbg.breakpint.clearOnFunction("main");
+
+//    dbg.variable.checkEquals(TYPE_ID_SWATT_UINT32,"myVar",10);
+}
