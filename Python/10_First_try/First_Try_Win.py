@@ -1,5 +1,5 @@
 
-import First_Try_with_comments
+#import First_Try_with_comments
 
 		
 def User_input(nix = 5):

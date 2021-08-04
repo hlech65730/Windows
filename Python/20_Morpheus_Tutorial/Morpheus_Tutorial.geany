@@ -18,15 +18,13 @@ detect_indent_width=false
 indent_mode=2
 
 [project]
-name=First_Try
-base_path=D:\\Repositories\\Windows\\Python\\10_First_try
-description=
+name=Morpheus_Tutorial
+base_path=D:\\Repositories\\Windows\\Python\\20_Morpheus_Tutorial
 
 [long line marker]
 long_line_behaviour=1
 long_line_column=72
 
 [files]
-current_page=1
-FILE_NAME_0=0;Python;0;EUTF-8;1;1;0;D%3A%5CRepositories%5CWindows%5CPython%5C10_First_try%5CFirst_main_Win.py;0;4
-FILE_NAME_1=3;Python;0;EUTF-8;1;1;0;D%3A%5CRepositories%5CWindows%5CPython%5C10_First_try%5CFirst_Try_Win.py;0;4
+current_page=0
+FILE_NAME_0=0;Python;0;EUTF-8;1;1;0;D%3A%5CRepositories%5CWindows%5CPython%5C20_Morpheus_Tutorial%5CMorpheus_Tutorial.py;0;4
