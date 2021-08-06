@@ -15,8 +15,8 @@ canvas_height = 50
 	
 app_win = tk.Tk()
 			
-sqr_gry_arrow_red_img = tk.PhotoImage(file="D:\\uid_02589\\python\\30_Tkinter_Tutorial\\pictures\\Rechteck_grau_mit_Pfeil_rot_klein.gif")
-sqr_gry_circle_grn_img = tk.PhotoImage(file="D:\\uid_02589\\python\\30_Tkinter_Tutorial\\pictures\\Rechteck_grau_mit_Kreis_durchstrichen_gruen_klein.gif")
+sqr_gry_arrow_red_img = tk.PhotoImage(file="D:\\Repositories\\Windows\\Python\\30_Tkinter_Tutorial\\20_Gif\\Rechteck_grau_mit_Pfeil_rot_klein.gif")
+sqr_gry_circle_grn_img = tk.PhotoImage(file="D:\\Repositories\\Windows\\Python\\30_Tkinter_Tutorial\\20_Gif\\Rechteck_grau_mit_Kreis_durchstrichen_gruen_klein.gif")
 
 
 class Schalter(tk.Frame):

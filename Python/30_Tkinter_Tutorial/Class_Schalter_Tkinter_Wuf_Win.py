@@ -23,9 +23,9 @@ class Schalter(tk.Frame):
         tk.Frame.__init__(self, app_win)
         
         self.sqr_gry_arrow_red_img = tk.PhotoImage(
-            file="D:\\uid_02589\\python\\30_Tkinter_Tutorial\\pictures\\Rechteck_grau_mit_Pfeil_rot_klein.ppm")
+            file="D:\\Repositories\\Windows\\Python\\30_Tkinter_Tutorial\\20_Gif\\Rechteck_grau_mit_Pfeil_rot_klein.gif")
         self.sqr_gry_circle_grn_img = tk.PhotoImage(
-            file="D:\\uid_02589\\python\\30_Tkinter_Tutorial\\pictures\\Rechteck_grau_mit_Kreis_durchstrichen_gruen_klein.gif")
+            file="D:\\Repositories\\Windows\\Python\\30_Tkinter_Tutorial\\20_Gif\\Rechteck_grau_mit_Kreis_durchstrichen_gruen_klein.gif")
                 
         radio_button_frame = tk.Frame(self)
         radio_button_frame.pack(side='left', expand=True)

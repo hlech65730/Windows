@@ -95,12 +95,10 @@ canvas.pack()
 
 
 #definition of picture blue_img 
-blue_img = PhotoImage(file="D:\\uid_02589\\python\\30_Tkinter_Tutorial\\pictures\\Rechteck_grau_mit_Zeiger_gruen_links.PPM") 
+blue_img = PhotoImage(file="D:\\Repositories\\Windows\\Python\\30_Tkinter_Tutorial\\30_PPM\\Rechteck_grau_mit_Zeiger_gruen_links.PPM") 
 
 #definition of picture red_img 
-red_img = PhotoImage(file="D:\\uid_02589\\python\\30_Tkinter_Tutorial\\pictures\\Rechteck_grau_mit_Zeiger_rot_links.PPM")
-
-
+red_img = PhotoImage(file="D:\\Repositories\\Windows\\Python\\30_Tkinter_Tutorial\\30_PPM\\Rechteck_grau_mit_Zeiger_rot_links.PPM")
 
 # call of the class App with parameter root for the window
 app = App(root)
