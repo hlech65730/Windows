@@ -112,5 +112,6 @@ nachname = entry2.pack()
 #start window loop
 root.mainloop()
 
-print(vorname)
-print(nachname)
+#print input data of Vorname and Nachnahme
+print(entry1.get(), entry2.get())
+
