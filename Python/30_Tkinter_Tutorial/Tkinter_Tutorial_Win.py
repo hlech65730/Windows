@@ -41,10 +41,14 @@ class App:
 
 # Tkinter window definition
 root = Tk() 
-root.title("First python Tkinter window") 
+root.title("First Python Tkinter window") 
+
+second = Toplevel()
+second.title ( "Second Python Tkinter Window")
 
 # width x height + x_offset + y_offset:
 root.geometry("500x600+30+30") 
+second.geometry( "500x900+600+30")
 
 # define red label inside the window with text  "red Label"
 w = Label(root, text="Red Label", bg="red", fg="white")
@@ -111,6 +115,22 @@ nachname = entry2.pack()
 
 #start window loop
 root.mainloop()
+
+#definition of picture thermometer 
+thermometer_img = PhotoImage(file="D:\\Repositories\\Windows\\Python\\30_Tkinter_Tutorial\\30_PPM\\Thermometer.PPM")
+
+#canvas for second window
+second_canvas_width = 200
+second_canvas_height = 600
+second_canvas = Canvas(second, 
+           width=second_canvas_width, 
+           height=second_canvas_height)
+second_canvas.grid(row=0,column=0)
+
+second_canvas.create_image(20,20, anchor=NW, image=thermometer_img)
+
+#start window second
+second.mainloop()
 
 #print input data of Vorname and Nachnahme
 print(entry1.get(), entry2.get())
