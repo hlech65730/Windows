@@ -1,8 +1,8 @@
 /***************************************************************
  * Name:      wxWidgetsApp.h
  * Purpose:   Defines Application Class
- * Author:    Holger Lech ()
- * Created:   2022-05-17
+ * Author:    Holger Lech (hlech65730@aol.com)
+ * Created:   2022-05-20
  * Copyright: Holger Lech ()
  * License:
  **************************************************************/
